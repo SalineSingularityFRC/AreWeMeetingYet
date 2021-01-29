@@ -28,6 +28,17 @@
 			color: red;
 		}
 
+		.left {
+			text-align: left;
+			width: 50%;
+			margin: auto;
+		}
+
+		.time {
+			color: red;
+			font-weight: bold;
+		}
+
 		#are-we {
 			padding: 1.5em;
 			padding-bottom: 3em;
@@ -38,6 +49,16 @@
 	<body>
 		<h1>Are we meeting yet?</h1>
 		<div id="are-we">???</div>
+
+		<h3>Other meetings</h3>
+		<ul class="left">
+			<li><code class="time">Tuesday&nbsp;&nbsp;at&nbsp;&nbsp;6:30pm</code> - Game Design Meeting</li>
+			<li><code class="time">Thursday&nbsp;at&nbsp;&nbsp;4:00pm</code> - Scouting Team Meeting</li>
+			<li><code class="time">Thursday&nbsp;at&nbsp;&nbsp;5:00pm</code> - Programming Team Meeting</li>
+			<li><code class="time">Friday&nbsp;&nbsp;&nbsp;at&nbsp;&nbsp;4:00pm</code> - Business Team Meeting</li>
+			<li><code class="time">Friday&nbsp;&nbsp;&nbsp;at&nbsp;&nbsp;7:00pm</code> - CAD/Mechanical/Electrical/Design Meeting</li>
+			<li><code class="time">Saturday&nbsp;at&nbsp;10:00am</code> - Infinite Recharge at Home</li>
+		</ul>
 	</body>
 	<script>
 		let p = document.getElementById("are-we");
