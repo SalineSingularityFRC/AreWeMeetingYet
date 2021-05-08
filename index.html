@@ -40,43 +40,38 @@
 		}
 
 		#are-we {
-			padding: 1.5em;
-			padding-bottom: 3em;
+			margin: auto;
+			width: 50%;
 			border: 3px solid black;
 		}
 		</style>
 	</head>
 	<body>
-		<h1>Are we meeting yet?</h1>
+		<h1>are we meeting yet?</h1>
 		<div id="are-we">???</div>
 
-		<h3>Other meetings</h3>
-		<ul class="left">
-			<li><code class="time">Tuesday&nbsp;&nbsp;at&nbsp;&nbsp;6:30pm</code> - Game Design Meeting</li>
-			<li><code class="time">Thursday&nbsp;at&nbsp;&nbsp;4:00pm</code> - Scouting Team Meeting</li>
-			<li><code class="time">Thursday&nbsp;at&nbsp;&nbsp;5:00pm</code> - Programming Team Meeting</li>
-			<li><code class="time">Friday&nbsp;&nbsp;&nbsp;at&nbsp;&nbsp;4:00pm</code> - Business Team Meeting</li>
-			<li><code class="time">Friday&nbsp;&nbsp;&nbsp;at&nbsp;&nbsp;7:00pm</code> - CAD/Mechanical/Electrical/Design Meeting</li>
-			<li><code class="time">Saturday&nbsp;at&nbsp;10:00am</code> - Infinite Recharge at Home</li>
+		<h3>other meetings</h3>
+		<ul>
+			<li><code><span class="time">friday at 7:00pm</span> - CAD/Mechanical/Electrical subteam meeting</code></li>
 		</ul>
 	</body>
 	<script>
 		let p = document.getElementById("are-we");
 		let today = new Date();
 
-		let day = today.getUTCDay();
-		let min = today.getUTCMinutes();
-		let hour = today.getUTCHours();
+		let day = today.getDay();
+		let min = today.getMinutes();
+		let hour = today.getHours();
 
 		console.log(`day: ${day}, hour: ${hour}, min: ${min}`);
 
-		// is it tuesday at 11:00 UTC?
-		// tuesday is '2' because sunday is idx 0
-		// hour is 23 UTC because hours go 0 to 23 instead of being normal
-		if (day === 2 && hour === 23 && min >= 0 && min < 30) { 
-			p.innerHTML = `<h2 class="yes">Yes!</h2> <p><i>Check the announcements channel for a zoom link!</i></p>`;
+		// is it saturday at 10:00 EST?
+		// day = 6 (saturday)
+		// hour = 10 .. 13 (anytime from 10 to 1)
+		if (day === 6 && hour >= 10 && hour <= 13) { 
+			p.innerHTML = `<h2 class="yes">Yes!</h2>`;
 		} else {
-			p.innerHTML = `<h2 class="no">Not yet...</h2> <p><i>The next meeting is on Tuesday at 6:00 local time (11:00 UTC)</i></p>`;
+			p.innerHTML = `<h2 class="no">Not yet...</h2> <p><i>The next meeting is on Saturday at 10:00a.m.</i></p>`;
 		}
 	</script>
 </html>
