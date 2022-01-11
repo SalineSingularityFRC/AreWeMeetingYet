@@ -50,9 +50,9 @@
 		<h1>are we meeting yet?</h1>
 		<div id="are-we">???</div>
 
-		<h3>other meetings</h3>
+		<h3>exceptions</h3>
 		<ul>
-			<li><code><span class="time">friday at 7:00pm</span> - CAD/Mechanical/Electrical subteam meeting</code></li>
+			<li>MLK day</li>
 		</ul>
 	</body>
 	<script>
@@ -65,13 +65,24 @@
 
 		console.log(`day: ${day}, hour: ${hour}, min: ${min}`);
 
-		// is it saturday at 10:00 EST?
-		// day = 6 (saturday)
-		// hour = 10 .. 13 (anytime from 10 to 1)
-		if (day === 6 && hour >= 10 && hour <= 13) { 
-			p.innerHTML = `<h2 class="yes">Yes!</h2>`;
+		let times = [
+			[ 1, 17, 21 ] /* monday 5:30 - 9 */
+			, [ 3, 17, 21 ] /* wednesday 5:30 - 9 */
+			, [ 5, 17, 22 ] /* friday 5:30 - 10 */
+			, [ 6, 10, 17 ] /* saturday 10 - 5 */
+		];
+		let t = false;
+
+		times.forEach((v,i,a) => {
+			if (day === v[0] && hour >= v[1] && hour <= v[2]) {
+				t = true;
+			}
+		});
+
+		if (t) { 
+			p.innerHTML = `<h2 class="yes">Yes.</h2>`;
 		} else {
-			p.innerHTML = `<h2 class="no">Not yet...</h2> <p><i>The next meeting is on Saturday at 10:00a.m.</i></p>`;
+			p.innerHTML = `<h2 class="no">No.</h2> <p><i>The next meeting is on Saturday at 10:00a.m.</i></p>`;
 		}
 	</script>
 </html>
