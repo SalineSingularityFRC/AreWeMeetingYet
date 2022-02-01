@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Are we meeting?</title>
+		<meta charset="utf-8"/>
+		<style>
+				body {
+						text-align: center;
+				}
+				h2 {
+						font-size: 5em;
+				}
+				p {
+						font-size: 1.5em;
+				}
+				.yes {
+						color: green;
+				}
+				.no {
+						color: red;
+				}
+				.left {
+						text-align: left;
+						width: 50%;
+						margin: auto;
+				}
+				.time {
+						color: red;
+						font-weight: bold;
+				}
+				#are-we {
+						margin: auto;
+						width: 50%;
+						border: 3px solid black;
+				}
+			</style>
+		</head>
+	<body>
+		<h1>are we meeting today?</h1>
+		<div id="are-we"><h2 class="no">No.</h2></div>
+		<p><a href="/s.html">full schedule</a></p>
+	</body>
+	<script>
+		let d=new Date().getDay();
+		let c=(x)=>{return x===d};
+		let a =   c(1)/* monday */
+			||c(3) /* wednesday */
+			||c(5) /* friday */
+			||c(6) /* saturday */;
+		/* console.log(`${c(1)}, ${c(3)}, ${c(5)}, ${c(6)}`); */
+		document.getElementById("are-we").innerHTML = `<h2 class="${a?"yes":"no"}">${a?"Yes.":"No."}</h2>`;
+	</script>
+</html>
